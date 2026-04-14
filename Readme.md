@@ -5,16 +5,16 @@
 => npm i @types/pg nodemon prisma -D
 
 # Prisma init
-npx prisma init
+=> npx prisma init
 
 # Prisma migration
-npx prisma migrate dev --name ... (Any) or npx prisma migrate dev (All migrations)
+=> npx prisma migrate dev --name ... (Any) or npx prisma migrate dev (All migrations)
 
 # Prisma generate
-npx prisma generate
+=> npx prisma generate
 
 # Reset migration of Prisma
-npx prisma migrate reset
+=> npx prisma migrate reset
 
 # Running
-npm start
+=> npm start
