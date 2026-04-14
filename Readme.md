@@ -8,7 +8,7 @@
 npx prisma init
 
 # Prisma migration
-npx prisma migrate dev --name ... (Any)
+npx prisma migrate dev --name ... (Any) or npx prisma migrate dev (All migrations)
 
 # Prisma generate
 npx prisma generate
