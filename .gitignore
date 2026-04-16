@@ -1,5 +1,11 @@
-# Ignore node_modules and environment variable files
+# Ignore everything in node_modules
 node_modules/
+
+# BUT allow prisma folder inside it
+!node_modules/prisma/
+
+# And allow its contents
+!node_modules/prisma/**
 
 # Ignore environment variable files
 .env
