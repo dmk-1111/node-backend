@@ -2,6 +2,8 @@ import express from 'express';
 import { createUser,welcome,updateUser,deleteUser,searchUsers } from '../controller/user.controller.js';
 import { createHero,showHero } from '../controller/hero.controller.js';
 import multer from 'multer';
+import path from "path";
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "public/uploads/heroes/");
@@ -26,5 +28,15 @@ router.get("/users", (req,res) => searchUsers(req,res));
 router.post("/heroes", upload.single("image"),(req,res) => createHero(req,res));
 router.get("/heroes", (req,res) => showHero(req,res));
 
+router.get("/image/:folder/:filename", (req, res) => {
+  const { folder, filename } = req.params;
 
+  const filePath = path.join(process.cwd(), "public/uploads/", folder, filename);
+
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      res.status(404).json({ message: "Image not found" });
+    }
+  });
+});
 export default router;
