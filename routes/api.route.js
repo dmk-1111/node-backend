@@ -1,6 +1,6 @@
 import express from 'express';
 import { createUser,welcome,updateUser,deleteUser,searchUsers } from '../controller/user.controller.js';
-import { createHero,showHero } from '../controller/hero.controller.js';
+import { createHero,showHero,updateHero } from '../controller/hero.controller.js';
 import multer from 'multer';
 import path from "path";
 
@@ -26,6 +26,7 @@ router.get("/users", (req,res) => searchUsers(req,res));
 
 // Hero routes
 router.post("/heroes", upload.single("image"),(req,res) => createHero(req,res));
+router.put("/heroes-update", upload.single("image"),(req,res) => updateHero(req,res));
 router.get("/heroes", (req,res) => showHero(req,res));
 
 router.get("/image/:folder/:filename", (req, res) => {
