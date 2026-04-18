@@ -23,3 +23,9 @@ model Hero {
   name  String  
   image String
 }
+
+model Profile {
+  id    Int     @id @default(autoincrement()) 
+  name  String  
+  profile String
+}

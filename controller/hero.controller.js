@@ -32,11 +32,11 @@ export const updateHero = async (req, res) => {
 };
 
 export const showHero = async (req, res) => {
-    try {        
+    try {
         const hero = await prisma.$queryRaw`
             SELECT * FROM "Hero" WHERE "id" = 1 limit 1;
         `;
-        res.status(201).json(hero);
+        res.status(200).json(hero[0] || null);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
